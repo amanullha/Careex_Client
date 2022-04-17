@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
@@ -19,9 +19,16 @@ const SignUp = () => {
 
     const [updateProfile] = useUpdateProfile(auth);
 
+
+    // redirect to last page after login
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+    console.log("from : ", from);
     if (user) {
-        navigate('/login');
+        navigate(from, { replace: true });
     }
+
 
     if (error) {
         errordiv = <p className='text-red'>{error.message}</p>
@@ -34,9 +41,9 @@ const SignUp = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
 
-        if (error) {
-            return;
-        }
+        // if (error) {
+        //     return;
+        // }
 
         let name = e.target.elements.name?.value;
         let email = e.target.elements.email?.value;

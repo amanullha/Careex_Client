@@ -15,4 +15,10 @@
 .appointment-form .submit-btn{
    background-color: rgb(104, 101, 0);
    border-radius: 10px;
+   color: rgb(240, 223, 99);
+}
+.appointment-form .submit-btn:active{
+   background-color: rgb(71, 69, 4);
+   border-radius: 10px;
+   
 }

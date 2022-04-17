@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 
@@ -17,6 +17,9 @@ const SocialMediaLogin = () => {
     const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
 
     let errordiv;
+    
+    let location = useLocation();
+
 
     if (googleLoading || githubLoading) {
         return <Loading></Loading>
@@ -24,9 +27,18 @@ const SocialMediaLogin = () => {
 
 
 
+    // redirect to last page after login
+
+
+    let from = location.state?.from?.pathname || "/";
+    console.log("from : ", from);
+
+
     if (googleUser || githubUser) {
-        navigate("/home");
+        navigate(from, { replace: true });
     }
+
+
 
     if (googleError || githubError) {
         errordiv = <p className='text-center text-red-700'>{githubError?.message}{googleError?.message}</p>

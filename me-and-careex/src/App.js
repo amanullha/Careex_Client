@@ -12,6 +12,7 @@ import SingUp from './Pages/Home/Login/SignUp/SingUp';
 import TopHeader from './Pages/Shared/TopHeader/TopHeader';
 import CheckOut from './Pages/Home/CheckOut/CheckOut';
 import RequireAuth from './Pages/Home/Login/RequireAuth/RequireAuth';
+import TakenAppointment from './Pages/Home/TakenAppointment/TakenAppointment';
 
 function App() {
   return (
@@ -22,7 +23,15 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/checkout/:serviceName' element={<RequireAuth><CheckOut /></RequireAuth>} />
+        <Route path='/checkout/:serviceName' element={<CheckOut />} />
+
+
+
+        <Route path='/appointment-taken' element={<RequireAuth><TakenAppointment /></RequireAuth>} />
+
+
+
+
 
         <Route path='/about' element={<About />} />
         <Route path='/contacts' element={<Contacts />} />

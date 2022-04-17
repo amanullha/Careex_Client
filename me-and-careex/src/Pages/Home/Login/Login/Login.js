@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
 import SocialMediaLogin from '../SocialMediaLogin/SocialMediaLogin';
@@ -17,9 +17,17 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+
+    // redirect to last page after login
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+    console.log("from : ", from);
     if (user) {
-        navigate('/home');
+        navigate(from, { replace: true });
     }
+
+
 
     if (error) {
         errordiv = <p className='text-red'>{error.message}</p>
@@ -31,9 +39,9 @@ const Login = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        if (error) {
-            return;
-        }
+        // if (error) {
+        //     return;
+        // }
 
         let email = e.target.elements.email?.value;
         let password = e.target.elements.password?.value;
