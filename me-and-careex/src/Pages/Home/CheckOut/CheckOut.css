@@ -1,0 +1,18 @@
+.appointment-form{
+    background-color: #1b3448;
+    /* opacity: 20%; */
+}
+.appointment-form label{
+    margin-top: 20px;
+    color: whitesmoke;
+    font-size: large;
+}
+.appointment-form input{
+    background-color: #365871;
+    font-size:x-large;
+    color:#cecb5e
+}
+.appointment-form .submit-btn{
+   background-color: rgb(104, 101, 0);
+   border-radius: 10px;
+}
