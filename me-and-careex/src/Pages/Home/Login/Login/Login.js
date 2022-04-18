@@ -54,6 +54,7 @@ const Login = () => {
 
     const handleGoToForgetPassword = () => {
 
+        navigate('/forget-password');
     }
 
 

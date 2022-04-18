@@ -56,6 +56,7 @@ const SignUp = () => {
 
 
     const handleGoToForgetPassword = () => {
+        navigate('/forget-password');
     }
 
 

@@ -13,6 +13,7 @@ import TopHeader from './Pages/Shared/TopHeader/TopHeader';
 import CheckOut from './Pages/Home/CheckOut/CheckOut';
 import RequireAuth from './Pages/Home/Login/RequireAuth/RequireAuth';
 import TakenAppointment from './Pages/Home/TakenAppointment/TakenAppointment';
+import ForgetPass from './Pages/Home/ForgetPass/ForgetPass';
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
         <Route path='/contacts' element={<Contacts />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SingUp />} />
+
+        <Route path='/forget-password' element={<ForgetPass />} />
+
+
 
         {/* <Route path='/' element={}/> */}
 

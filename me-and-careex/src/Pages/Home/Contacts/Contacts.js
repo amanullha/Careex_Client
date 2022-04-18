@@ -23,7 +23,7 @@ const Contacts = () => {
         <div>
 
 
-            <div></div>
+
 
             <div className=' mx-auto w-3/4 gap-10 sm:w-full flex justify-evenly flex-col sm:flex-row my-20 '>
                 <div >
