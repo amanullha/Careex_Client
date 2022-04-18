@@ -1,4 +1,4 @@
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signOut } from 'firebase/auth';
 import React, { useState } from 'react'
@@ -82,6 +82,12 @@ const Header = () => {
                             : <li className={splitLocation[1] === "login" ? "active" : ""}>
                                 <Link to="/login">LOGIN</Link>
                             </li>
+                    }
+                    {
+                        user?.uid ? <li style={{ borderRadius: "50%" }} className='mt-2 py-3 bg-gray-400  flex flex-col items-center justify-center'>
+                            <FontAwesomeIcon style={{ width: "100px" }} icon={faUser}></FontAwesomeIcon>
+                            <small className='text-yellow-200'>{user?.displayName}</small>
+                        </li> : ""
                     }
 
                 </ul>
