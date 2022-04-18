@@ -1,15 +1,19 @@
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signOut } from 'firebase/auth';
-import React from 'react'
+import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useLocation } from 'react-router-dom';
 import auth from '../../../firebase.init';
+
 import './Header.css'
 
 
 const Header = () => {
 
     const [user, loading, error] = useAuthState(auth);
+
+    const [open, setOpen] = useState(false);
 
     //assigning location variable
     const location = useLocation();
@@ -24,15 +28,32 @@ const Header = () => {
     const handleLogOut = () => {
         signOut(auth);
     }
+    const handleChangeOpen = () => {
+        setOpen(open ^ 1);
+    }
 
     return (
-        <div className=' sticky top-0 z-50  shadow-md bg-white '>
+        <div className=' sticky top-0 z-50  shadow-md bg-white relative '>
+            <div className='  md:hidden p-5'>
 
-            <nav className='  flex items-center justify-between  w-full md:w-10/12 mx-auto' >
-                <div className='p-1'>
+                <div className=' float-right bg-slate-400 inline '>
+                    {
+                        open ?
+                            <FontAwesomeIcon onClick={handleChangeOpen} icon={faXmark} />
+                            :
+                            <FontAwesomeIcon onClick={handleChangeOpen} icon={faBars} />
+                    }
+                </div>
+
+            </div>
+
+            <nav className='  flex items-center justify-between  w-full md:w-10/12 mx-auto relative' >
+
+                <div className={open ? "hidden md:block" : "p-1 "}>
                     <img width={140} src="logo.png" alt="" />
                 </div>
-                <ul className='flex items-center gap-4'>
+
+                <ul className={open ? "flex md:items-center md:flex-row md:relative md:justify-center items-center md:gap-4 flex-col absolute bg-white w-full top-5 duration-1000 ease-in-out " : "  md:flex hidden items-center gap-4  "}>
                     {/* Checking the current path name using javascript ternary operator and if true adding active classname to it */}
 
                     <li className={splitLocation[1] === "" ? "active" : ""}>
