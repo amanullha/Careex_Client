@@ -1,4 +1,32 @@
-# Getting Started with Create React App
+## Project Description
+
+# Project features
+
+. Home
+. Services
+. Appointment
+. Blogs
+. About
+. SingUp/Login
+
+# Framework
+
+. React
+. Tailwind
+
+# Libraries
+
+. react route
+. react hooks
+. font awesome
+
+# Important functions
+
+. Require auth
+. environment variable
+. custom hooks
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
