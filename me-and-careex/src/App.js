@@ -14,6 +14,8 @@ import CheckOut from './Pages/Home/CheckOut/CheckOut';
 import RequireAuth from './Pages/Home/Login/RequireAuth/RequireAuth';
 import TakenAppointment from './Pages/Home/TakenAppointment/TakenAppointment';
 import ForgetPass from './Pages/Home/ForgetPass/ForgetPass';
+import Services from './Pages/Home/Services/Services';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -24,18 +26,18 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/checkout/:serviceName' element={<CheckOut />} />
+        <Route path='/services' element={<Services />} />
 
+
+        <Route path='/checkout/:serviceName' element={<CheckOut />} />
 
 
         <Route path='/appointment-taken' element={<RequireAuth><TakenAppointment /></RequireAuth>} />
 
 
-
-
-
         <Route path='/about' element={<About />} />
         <Route path='/contacts' element={<Contacts />} />
+        <Route path='/blogs' element={<Blog />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SingUp />} />
 

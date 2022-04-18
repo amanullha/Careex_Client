@@ -15,7 +15,7 @@ const Services = () => {
     }
 
     return (
-        <div>
+        <div id='services'>
             <div className='flex justify-center items-center w-full md:w-10/12 mx-auto my-3'>
                 <hr style={{ width: "30%" }}></hr>
                 <h1 className=' my-10 mx-2 text-3xl font-bold tracking-widest text-green-900'>My Clinical Services</h1>

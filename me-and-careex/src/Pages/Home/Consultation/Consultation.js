@@ -1,7 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Consultation.css'
 
 const Consultation = () => {
+
+    const navigate = useNavigate();
+
+    const getInTouch = () => {
+        navigate('/contacts')
+    }
+
+
     return (
         <div>
             <div className='w-full md:w-10/12 mx-auto my-20 bg-green-200 p-3 md:p-10 rounded-lg flex items-center justify-between'>
@@ -17,7 +26,7 @@ const Consultation = () => {
                         <p className='text-3xl ml-3 text-yellow-600'> 2441139</p>
                     </div>
 
-                    <button className='bg-green-600 text-yellow-300 px-10 py-3 font-bold rounded-full hover:text-white active:bg-green-700 tracking-wider my-5'>
+                    <button onClick={getInTouch} className='bg-green-600 text-yellow-300 px-10 py-3 font-bold rounded-full hover:text-white active:bg-green-700 tracking-wider my-5'>
                         GET IN TOUCH
                     </button>
                 </div>

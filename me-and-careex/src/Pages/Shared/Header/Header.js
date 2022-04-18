@@ -39,12 +39,19 @@ const Header = () => {
                         <Link to='/'>HOME</Link>
                     </li>
 
+                    <li className={splitLocation[1] === "services" ? "active" : ""}>
+                        <Link to='/services'>SERVICES</Link>
+                    </li>
+
                     <li className={splitLocation[1] === "about" ? "active" : ""}>
                         <Link to='/about'>ABOUT</Link>
                     </li>
 
                     <li className={splitLocation[1] === "contacts" ? "active" : ""}>
                         <Link to="/contacts">CONTACTS</Link>
+                    </li>
+                    <li className={splitLocation[1] === "blogs" ? "active" : ""}>
+                        <Link to="/blogs">BLOGS</Link>
                     </li>
 
                     {
